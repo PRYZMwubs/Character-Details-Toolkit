@@ -7,6 +7,5 @@ body:
   attributes:
     label: Describe your suggestion
     description: Give a clear explanation of what you would like to be added.
-    placeholder: |
   validations:
     required: true
