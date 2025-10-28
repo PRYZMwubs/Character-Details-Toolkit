@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Character Details Toolkit"
+config/version="beta v.0.1.0"
+run/main_scene="uid://4rslgnta0xfi"
+config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/show_image=false
+config/icon="uid://cqcbopu4xo58v"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+window/vsync/vsync_mode=0
