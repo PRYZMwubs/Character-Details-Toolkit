@@ -1,0 +1,31 @@
+name: Bug Report
+description: Submit a bug
+title: "Bug: <Title>"
+labels: ["Type: Bug"]
+body:
+- type: textarea
+  attributes:
+    label: Describe the bug
+    description: A clear description of what the bug is.
+    placeholder: |
+      When I do X then Y happens.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: To Reproduce
+    description: Steps to reproduce the behavior
+    placeholder: |
+      1. Open map ...
+      2. Do ...
+      3. See error
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: What is the expected behaviour?
+    description: What is meant to happen instead?
+    placeholder: |
+     When X happens, Y should happen.
+  validations:
+    required: true
