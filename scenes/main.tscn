@@ -122,7 +122,7 @@ selection_enabled = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 folded = true
-title = "Probability"
+title = "Choices"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights"]
 visible = false
@@ -131,89 +131,33 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer"]
 layout_mode = 2
 
-[node name="Heterosexual Container" type="HBoxContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prefer matching sexuality and romantic orientation:"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HetSlider" type="HSlider" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Heterosexual Container"]
-custom_minimum_size = Vector2(600, 30)
+[node name="MatchBiasContainer" type="HBoxContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BiasSlider" type="HSlider" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer"]
+custom_minimum_size = Vector2(800, 30)
 layout_mode = 2
 step = 5.0
-value = 100.0
+value = 50.0
 scrollable = false
 
-[node name="HetLabel" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Heterosexual Container"]
+[node name="BiasLabel" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer"]
 layout_mode = 2
-text = "Heterosexual: 100.0%"
+text = "Bias: 50%"
 
-[node name="HomosexualContainer" type="HBoxContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+text = "Probabilities:"
 
-[node name="HomoSlider" type="HSlider" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/HomosexualContainer"]
-custom_minimum_size = Vector2(600, 30)
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-step = 5.0
-value = 100.0
-scrollable = false
-
-[node name="HomoLabel" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/HomosexualContainer"]
-layout_mode = 2
-text = "Homosexual: 100.0%"
-
-[node name="Bisexual" type="HBoxContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="BiSlider" type="HSlider" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Bisexual"]
-custom_minimum_size = Vector2(600, 30)
-layout_mode = 2
-step = 5.0
-value = 100.0
-scrollable = false
-
-[node name="BiLabel" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Bisexual"]
-layout_mode = 2
-text = "Bisexual: 100.0%"
-
-[node name="PansexualContainer" type="HBoxContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PanSlider" type="HSlider" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/PansexualContainer"]
-custom_minimum_size = Vector2(600, 30)
-layout_mode = 2
-step = 5.0
-value = 100.0
-scrollable = false
-
-[node name="PanLabel" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/PansexualContainer"]
-layout_mode = 2
-text = "Pansexual: 100.0%"
-
-[node name="AceContainer" type="HBoxContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="AceSlider" type="HSlider" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/AceContainer"]
-custom_minimum_size = Vector2(600, 30)
-layout_mode = 2
-step = 5.0
-value = 100.0
-scrollable = false
-
-[node name="AceLabel" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/AceContainer"]
-layout_mode = 2
-text = "Asexual: 100.0%"
-
-[node name="OmnisexualContainer" type="HBoxContainer" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="OmniSlider" type="HSlider" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/OmnisexualContainer"]
-custom_minimum_size = Vector2(600, 30)
-layout_mode = 2
-step = 5.0
-value = 100.0
-scrollable = false
-
-[node name="OmniLabel" type="Label" parent="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/OmnisexualContainer"]
-layout_mode = 2
-text = "Omnisexual: 100.0%"
 
 [node name="HistoryClearButton" type="Button" parent="TabContainer/Sexuality Picker/Content/VBox"]
 layout_mode = 2
@@ -248,23 +192,124 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="TabContainer/Gender Picker"]
+[node name="Content" type="PanelContainer" parent="TabContainer/Gender Picker"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -300.0
-offset_right = 576.0
-offset_bottom = 300.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 5.0
+offset_right = -16.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Gender Picker/Content"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Gender Picker/Content/VBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.22352941)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 6
 theme_override_font_sizes/font_size = 32
-text = "TODO."
+text = "Gender Picker"
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="HeaderSeparator" type="HSeparator" parent="TabContainer/Gender Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Name" type="LineEdit" parent="TabContainer/Gender Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter character name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Gender Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="RandomizeButton" type="Button" parent="TabContainer/Gender Picker/Content/VBox/HBoxContainer"]
+layout_mode = 2
+text = "Randomize"
+
+[node name="ClearButton" type="Button" parent="TabContainer/Gender Picker/Content/VBox/HBoxContainer"]
+layout_mode = 2
+text = "Clear"
+
+[node name="CopyButton" type="Button" parent="TabContainer/Gender Picker/Content/VBox/HBoxContainer"]
+layout_mode = 2
+text = "Copy"
+
+[node name="CopyNotifier" type="Label" parent="TabContainer/Gender Picker/Content/VBox/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Text copied to clipboard."
+
+[node name="Output" type="RichTextLabel" parent="TabContainer/Gender Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/default_color = Color(0.5686275, 0.5803922, 0.59607846, 1)
+text = "Press randomize to generate."
+selection_enabled = true
+
+[node name="Weights" type="FoldableContainer" parent="TabContainer/Gender Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Gender Picker/Content/VBox/Weights"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gender Picker/Content/VBox/Weights/ScrollContainer"]
+layout_mode = 2
+
+[node name="Heterosexual Container" type="HBoxContainer" parent="TabContainer/Gender Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HetSlider" type="HSlider" parent="TabContainer/Gender Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Heterosexual Container"]
+custom_minimum_size = Vector2(600, 30)
+layout_mode = 2
+step = 5.0
+value = 100.0
+scrollable = false
+
+[node name="HetLabel" type="Label" parent="TabContainer/Gender Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Heterosexual Container"]
+layout_mode = 2
+text = "Heterosexual: 100.0%"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Gender Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Heterosexual Container"]
+layout_mode = 2
+
+[node name="HistoryClearButton" type="Button" parent="TabContainer/Gender Picker/Content/VBox"]
+layout_mode = 2
+text = "Clear History"
+
+[node name="FoldableContainer" type="FoldableContainer" parent="TabContainer/Gender Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+title = "History"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Gender Picker/Content/VBox/FoldableContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Gender Picker/Content/VBox/FoldableContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="No History text" type="RichTextLabel" parent="TabContainer/Gender Picker/Content/VBox/FoldableContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
+text = "No history yet."
+selection_enabled = true
+
+[node name="VersionText" type="Label" parent="TabContainer/Gender Picker/Content/VBox"]
+layout_mode = 2
+text = "Character Details Toolkit beta v0.1.0 - Created by Kris Velivia"
 
 [node name="Ethnicity Picker" type="Control" parent="TabContainer"]
 visible = false
@@ -362,10 +407,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="TabContainer/Sexuality Picker/Content/VBox/HBoxContainer/RandomizeButton" to="TabContainer/Sexuality Picker" method="_on_randomize_button_pressed"]
 [connection signal="pressed" from="TabContainer/Sexuality Picker/Content/VBox/HBoxContainer/ClearButton" to="TabContainer/Sexuality Picker" method="_on_clear_button_pressed"]
 [connection signal="pressed" from="TabContainer/Sexuality Picker/Content/VBox/HBoxContainer/CopyButton" to="TabContainer/Sexuality Picker" method="_on_copy_button_pressed"]
-[connection signal="value_changed" from="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Heterosexual Container/HetSlider" to="TabContainer/Sexuality Picker" method="_on_het_slider_value_changed"]
-[connection signal="value_changed" from="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/HomosexualContainer/HomoSlider" to="TabContainer/Sexuality Picker" method="_on_homo_slider_value_changed"]
-[connection signal="value_changed" from="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/Bisexual/BiSlider" to="TabContainer/Sexuality Picker" method="_on_bi_slider_value_changed"]
-[connection signal="value_changed" from="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/PansexualContainer/PanSlider" to="TabContainer/Sexuality Picker" method="_on_pan_slider_value_changed"]
-[connection signal="value_changed" from="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/AceContainer/AceSlider" to="TabContainer/Sexuality Picker" method="_on_ace_slider_value_changed"]
-[connection signal="value_changed" from="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/OmnisexualContainer/OmniSlider" to="TabContainer/Sexuality Picker" method="_on_omni_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Sexuality Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer/BiasSlider" to="TabContainer/Sexuality Picker" method="_on_bias_slider_value_changed"]
 [connection signal="pressed" from="TabContainer/Sexuality Picker/Content/VBox/HistoryClearButton" to="TabContainer/Sexuality Picker" method="_on_history_clear_button_pressed"]
+[connection signal="pressed" from="TabContainer/Gender Picker/Content/VBox/HBoxContainer/ClearButton" to="TabContainer/Sexuality Picker" method="_on_clear_button_pressed"]
+[connection signal="pressed" from="TabContainer/Gender Picker/Content/VBox/HBoxContainer/CopyButton" to="TabContainer/Sexuality Picker" method="_on_copy_button_pressed"]
