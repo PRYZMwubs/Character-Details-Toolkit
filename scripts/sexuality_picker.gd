@@ -26,15 +26,10 @@ var rows = {}
 @onready var BiasSlider: Slider = $Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer/BiasSlider
 @onready var BiasLabel: Label = $Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer/BiasLabel
 
-# 0..100 probability to force romantic match with selected sexuality
 var _match_bias_pct: float = 50.0
 
 func _ready() -> void:
 	VersionText.text = "Character Details Toolkit " + str(project_version) + " - Created by Kris Velivia"
-	# Ensure bias slider behaves as 0..100%
-	BiasSlider.min_value = 0
-	BiasSlider.max_value = 100
-	BiasSlider.step = 1
 	_on_bias_slider_value_changed(BiasSlider.value)
 	build_rows()
 	
@@ -173,7 +168,6 @@ func _on_randomize_button_pressed() -> void:
 		if rom_total > 0.0:
 			var rom_pick_id: String = pick_weighted(rom_ids, rom_weights)
 			rom_text = rows[rom_pick_id].rom
-		# else leave rom_text empty (only sexuality shown)
 
 	var line: String = ("%s." % sex_text) if rom_text == "" else ("%s and %s." % [sex_text, rom_text])
 	
