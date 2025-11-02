@@ -47,10 +47,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
 theme_override_font_sizes/font_size = 14
-current_tab = 0
+current_tab = 2
 drag_to_rearrange_enabled = true
 
 [node name="Sexuality Picker" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("2_0wfyh")
 metadata/_tab_index = 0
@@ -328,27 +329,141 @@ layout_mode = 2
 text = "Character Details Toolkit beta v0.1.0 - Created by Kris Velivia"
 
 [node name="Ethnicity Picker" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Label2" type="Label" parent="TabContainer/Ethnicity Picker"]
+[node name="Content" type="PanelContainer" parent="TabContainer/Ethnicity Picker"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -300.0
-offset_right = 576.0
-offset_bottom = 300.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 5.0
+offset_right = -16.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Ethnicity Picker/Content"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.22352941)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 6
 theme_override_font_sizes/font_size = 32
-text = "TODO."
+text = "Ethnicity Picker"
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="HeaderSeparator" type="HSeparator" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Name" type="LineEdit" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter character name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="RandomizeButton" type="Button" parent="TabContainer/Ethnicity Picker/Content/VBox/HBoxContainer"]
+layout_mode = 2
+text = "Randomize"
+
+[node name="ClearButton" type="Button" parent="TabContainer/Ethnicity Picker/Content/VBox/HBoxContainer"]
+layout_mode = 2
+text = "Clear"
+
+[node name="CopyButton" type="Button" parent="TabContainer/Ethnicity Picker/Content/VBox/HBoxContainer"]
+layout_mode = 2
+text = "Copy"
+
+[node name="CopyNotifier" type="Label" parent="TabContainer/Ethnicity Picker/Content/VBox/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Text copied to clipboard."
+
+[node name="Output" type="RichTextLabel" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/default_color = Color(0.5686275, 0.5803922, 0.59607846, 1)
+text = "Press randomize to generate."
+selection_enabled = true
+
+[node name="Weights" type="FoldableContainer" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+folded = true
+title = "Choices"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prefer matching gender and pronouns:"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MatchBiasContainer" type="HBoxContainer" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BiasSlider" type="HSlider" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer"]
+custom_minimum_size = Vector2(800, 30)
+layout_mode = 2
+step = 5.0
+value = 50.0
+scrollable = false
+
+[node name="BiasLabel" type="Label" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer"]
+layout_mode = 2
+text = "Bias: 50%"
+
+[node name="Label2" type="Label" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Probabilities:"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HistoryClearButton" type="Button" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+layout_mode = 2
+text = "Clear History"
+
+[node name="FoldableContainer" type="FoldableContainer" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+title = "History"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Ethnicity Picker/Content/VBox/FoldableContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Ethnicity Picker/Content/VBox/FoldableContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="No History text" type="RichTextLabel" parent="TabContainer/Ethnicity Picker/Content/VBox/FoldableContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
+text = "No history yet."
+selection_enabled = true
+
+[node name="VersionText" type="Label" parent="TabContainer/Ethnicity Picker/Content/VBox"]
+layout_mode = 2
+text = "Character Details Toolkit beta v0.1.0 - Created by Kris Velivia"
 
 [node name="Species Picker" type="Control" parent="TabContainer"]
 visible = false
@@ -431,3 +546,9 @@ vertical_alignment = 1
 [connection signal="pressed" from="TabContainer/Gender Picker/Content/VBox/HBoxContainer/CopyButton" to="TabContainer/Gender Picker" method="_on_copy_button_pressed"]
 [connection signal="value_changed" from="TabContainer/Gender Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer/BiasSlider" to="TabContainer/Gender Picker" method="_on_bias_slider_value_changed"]
 [connection signal="pressed" from="TabContainer/Gender Picker/Content/VBox/HistoryClearButton" to="TabContainer/Gender Picker" method="_on_history_clear_button_pressed"]
+[connection signal="text_changed" from="TabContainer/Ethnicity Picker/Content/VBox/Name" to="TabContainer/Gender Picker" method="_on_name_text_changed"]
+[connection signal="pressed" from="TabContainer/Ethnicity Picker/Content/VBox/HBoxContainer/RandomizeButton" to="TabContainer/Gender Picker" method="_on_randomize_button_pressed"]
+[connection signal="pressed" from="TabContainer/Ethnicity Picker/Content/VBox/HBoxContainer/ClearButton" to="TabContainer/Gender Picker" method="_on_clear_button_pressed"]
+[connection signal="pressed" from="TabContainer/Ethnicity Picker/Content/VBox/HBoxContainer/CopyButton" to="TabContainer/Gender Picker" method="_on_copy_button_pressed"]
+[connection signal="value_changed" from="TabContainer/Ethnicity Picker/Content/VBox/Weights/ScrollContainer/VBoxContainer/MatchBiasContainer/BiasSlider" to="TabContainer/Gender Picker" method="_on_bias_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/Ethnicity Picker/Content/VBox/HistoryClearButton" to="TabContainer/Gender Picker" method="_on_history_clear_button_pressed"]
